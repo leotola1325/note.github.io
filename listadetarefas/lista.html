@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Gestão de Tarefas</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-tasks"></i>
+                <span>NOTE  </span>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#trancadas"><i class="fas fa-lock"></i> Trancadas</a></li>
+                    <li><a href="#anotacoes"><i class="fas fa-sticky-note"></i> Anotações</a></li>
+                    <li><a href="#agenda"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                    <li><a href="#checklist"><i class="fas fa-check-square"></i> Checklist</a></li>
+                    <li><a href="#conta"><i class="fas fa-user"></i> Conta</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Widget do Tempo -->
+            <div class="weather-widget">
+                <div class="weather-header">
+                    <h3>Clima</h3>
+                </div>
+
+                <div class="weather-search">
+                    <input type="text" id="cityInput" placeholder="Digite a cidade...">
+                    <button id="searchWeather"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="weather-content">
+                    <div class="weather-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="weather-info">
+                        <div class="temperature">25°C</div>
+                        <div class="location">São Paulo, SP</div>
+                        <div class="condition">Ensolarado</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar notas, tarefas...">
+                </div>
+                <div class="user-info">
+  <img id="userPhoto" src="default-avatar.png" alt="Foto de perfil" width="35" style="border-radius:50%">
+  <span id="userName">Olá, Usuário</span>
+</div>
+
+            </header>
+
+            <div class="content-area">
+                <div class="notes-header">
+                    <h1>Minhas Tarefas</h1>
+                    <button class="btn-add"><i class="fas fa-plus"></i> Nova Tarefa</button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter active">Todas</div>
+                    <div class="filter">Hoje</div>
+                    <div class="filter">Importantes</div>
+                    <div class="filter">Completas</div>
+                </div>
+
+                <div class="tasks-container">
+                    <div class="task-card" style="border-left: 4px solid #4CAF50;">
+                        <div class="task-header">
+                            <h3>Reunião com equipe</h3>
+                            <div class="task-actions">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash-alt"></i>
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="task-body">
+                            <p>Preparar apresentação para reunião de sprint planning.</p>
+                            <div class="task-meta">
+                                <span class="due-date"><i class="far fa-calendar-alt"></i> 15/04/2025</span>
+                                <span class="priority high"><i class="fas fa-exclamation-circle"></i> Alta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal para Nova Tarefa -->
+        <div class="modal" id="taskModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Nova Tarefa</h2>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskTitle">Título</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDescription">Descrição</label>
+                        <textarea id="taskDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskDueDate">Data de Vencimento</label>
+                            <input type="date" id="taskDueDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskPriority">Prioridade</label>
+                            <select id="taskPriority">
+                                <option value="low">Baixa</option>
+                                <option value="medium">Média</option>
+                                <option value="high">Alta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cor</label>
+                        <div class="color-options">
+                            <div class="color-option" data-color="#4CAF50"></div>
+                            <div class="color-option" data-color="#2196F3"></div>
+                            <div class="color-option" data-color="#FF9800"></div>
+                            <div class="color-option" data-color="#9C27B0"></div>
+                            <div class="color-option" data-color="#F44336"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-save">Salvar Tarefa</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="confirmModal">
+            <div class="modal-content small">
+                <h3 id="confirmMessage">Deseja realmente excluir esta tarefa?</h3>
+                <div class="modal-buttons">
+                    <button id="confirmCancel">Cancelar</button>
+                    <button id="confirmOk">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container para Notificações -->
+        <div id="notification-container"></div>
+    </div>
+
+    <script type="module">
+        import { db } from './firebaseConfig.js';
+        console.log("🔥 Firebase conectado com sucesso:", db);
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

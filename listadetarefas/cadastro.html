@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Inovador</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilo-cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Crie sua conta</h1>
+                <p>Junte-se a nós e desbloqueie um mundo de possibilidades</p>
+            </div>
+            
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <form id="registrationForm">
+                <div class="input-group floating">
+                    <input type="text" id="name" required>
+                    <label for="name">Nome completo</label>
+                    <div class="input-icon"><i class="fas fa-user"></i></div>
+                    <div class="input-bar"></div>
+                </div>
+                
+                <div class="input-group floating">
+                    <input type="email" id="email" required>
+                    <label for="email">E-mail</label>
+                    <div class="input-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="input-bar"></div>
+                </div>
+                
+                <div class="input-group floating">
+                    <input type="password" id="password" required>
+                    <label for="password">Senha</label>
+                    <div class="input-icon"><i class="fas fa-lock"></i></div>
+                    <div class="input-bar"></div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text">Força da senha</span>
+                    </div>
+                </div>
+                
+                <div class="input-group floating">
+                    <input type="password" id="confirmPassword" required>
+                    <label for="confirmPassword">Confirme sua senha</label>
+                    <div class="input-icon"><i class="fas fa-lock"></i></div>
+                    <div class="input-bar"></div>
+                </div>
+                
+                <div class="terms">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">Eu concordo com os 
+                        <a href="#">Termos de Serviço</a> e 
+                        <a href="#">Política de Privacidade</a>
+                    </label>
+                </div>
+              
+                <button type="submit" class="submit-btn">
+                    <span>Cadastrar</span>
+                    <div class="submit-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </button>
+            </form>
+            
+            <!-- LOGIN SOCIAL -->
+            <div class="social-login">
+                <p>Ou cadastre-se com</p>
+                <div class="social-icons">
+                    <!-- Google -->
+                    <button id="googleSignUpBtn" class="social google">
+                        <i class="fab fa-google"></i>
+                    </button>
+
+                    <!-- Facebook -->
+                    <button id="facebookSignUpBtn" class="social facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <!-- Twitter -->
+                    <button id="twitterSignUpBtn" class="social twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- LINK LOGIN -->
+            <div class="login-link">
+                Já tem uma conta? 
+                <a href="./login.html">Faça login</a>
+            </div>
+        </div>
+        
+        <!-- DESTAQUES -->
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Rápido</h3>
+                <p>Cadastro em menos de 1 minuto</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Seguro</h3>
+                <p>Seus dados estão protegidos</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-gift"></i></div>
+                <h3>Benefícios</h3>
+                <p>Desconto especial para novos usuários</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase + Auth -->
+    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="auth.js"></script>
+    
+    <!-- Partículas de fundo -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module" src="script-cadastro.js"></script>
+
+</body>
+</html>

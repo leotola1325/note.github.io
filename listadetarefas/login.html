@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login 3D Moderno</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilo-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Bem-vindo de volta</h1>
+                <p>Faça login para acessar sua conta</p>
+            </div>
+            
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="E-mail" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Senha" id="password">
+                    <i class="fa fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+                
+                <div class="options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Lembrar de mim
+                    </label>
+                    <a href="#" id="forgotPassword">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Entrar <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <!-- LOGIN SOCIAL -->
+            <div class="social-login">
+                <p>Ou entre com</p>
+                <div class="social-icons">
+                    <!-- Botão Google (funciona com auth.js) -->
+                    <button id="googleSignInBtn" class="social google">
+                        <i class="fab fa-google"></i>
+                    </button>
+
+                    <!-- Facebook (ainda só visual, não funcional) -->
+                    <button class="social facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <!-- Twitter (ainda só visual, não funcional) -->
+                    <button class="social twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- LINK CADASTRO -->
+            <div class="register-link">
+                Não tem uma conta?
+                <a href="./cadastro.html">
+                    Cadastre-se <span><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase + Auth -->
+    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="auth.js"></script>
+
+    <!-- Partículas de fundo -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="module" src="script-login.js"></script>
+</body>
+</html>

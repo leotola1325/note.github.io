@@ -1,0 +1,404 @@
+/* Variáveis de cores - Tema Preto e Cinza */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #333333;
+    --accent-color: #4d4d4d;
+    --dark-color: #e6e6e6;
+    --light-color: #0d0d0d;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --text-color: #e6e6e6;
+    --border-color: #444;
+    --checkbox-color: #4d4d4d;
+    --checkbox-checked: #1a1a1a;
+}
+
+/* Reset e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    color: var(--text-color);
+    background-color: #121212;
+    perspective: 1000px;
+}
+
+/* Fundo com imagem */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('fundo.jpeg');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    opacity: 0.7;
+    transform: translateZ(-50px) scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+body:hover .background {
+    transform: translateZ(-30px) scale(1.05);
+}
+
+/* Efeito de partículas */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: -1;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+/* Container do formulário com efeito 3D */
+.form-container {
+    background-color: rgba(43, 40, 40, 0.897);
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.form-container:hover {
+    transform: perspective(1000px) rotateY(5deg) rotateX(5deg) translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(20px);
+    pointer-events: none;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    transform: translateZ(30px);
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-header p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    transform: translateZ(20px);
+}
+
+/* Estilos dos inputs com efeito 3D */
+.input-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+    transform-style: preserve-3d;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    transform: translateZ(10px);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(77, 77, 77, 0.2), 
+                0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateZ(20px);
+}
+
+/* Checkboxes personalizados com efeito 3D */
+.terms {
+    margin: 1.5rem 0;
+    transform: translateZ(15px);
+}
+
+.terms input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--checkbox-color);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+    transform: translateZ(10px);
+}
+
+.terms input[type="checkbox"]:hover {
+    transform: translateZ(15px) scale(1.1);
+}
+
+.terms input[type="checkbox"]:checked {
+    background-color: var(--checkbox-checked);
+    border-color: var(--checkbox-checked);
+    transform: translateZ(15px);
+}
+
+.terms input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: var(--text-color);
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.terms label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.terms a {
+    color: var(--text-color);
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Botão de submit com efeito 3D */
+.submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    transform-style: preserve-3d;
+    transform: translateZ(15px);
+    overflow: hidden;
+    position: relative;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateZ(25px) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: all 0.5s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+/* Login social com efeito 3D */
+.social-login {
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateZ(20px);
+}
+
+.social-login p {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    position: relative;
+    opacity: 0.8;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    transform-style: preserve-3d;
+}
+
+.social-icons a,
+.social-icons button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: all 0.3s;
+    cursor: pointer;
+    transform: translateZ(15px);
+}
+
+.social-icons a:hover,
+.social-icons button:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateZ(25px) scale(1.1);
+}
+
+
+/* Link para login */
+.login-link {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-top: 1rem;
+    transform: translateZ(15px);
+}
+
+.login-link a {
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.login-link a:hover {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Container de features com efeito 3D */
+.features-container {
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transform-style: preserve-3d;
+}
+
+.feature-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 280px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    transform: perspective(500px) translateZ(0);
+}
+
+.feature-card:hover {
+    transform: perspective(500px) translateZ(20px) rotateY(5deg) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.feature-card h3 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    transform: translateZ(10px);
+}
+
+.feature-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.85rem;
+    transform: translateZ(5px);
+}
+
+/* Efeito de parallax no scroll */
+@media (min-width: 992px) {
+    .form-container {
+        transition: transform 0.5s ease;
+    }
+    
+    .features-container {
+        transition: transform 0.5s ease 0.1s;
+    }
+    
+    body.scroll .form-container {
+        transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-20px);
+    }
+    
+    body.scroll .features-container {
+        transform: translateY(20px) perspective(1000px) rotateY(5deg) rotateX(-5deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .features-container {
+        margin-left: 0;
+        margin-top: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .feature-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+    
+    .feature-card {
+        width: 100%;
+    }
+    
+    .form-container:hover {
+        transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-5px);
+    }
+}
